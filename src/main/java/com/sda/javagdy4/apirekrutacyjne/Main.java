@@ -37,7 +37,7 @@ Format daty wejściowej serwisu jest dowolny.
 
     private static void loadAndSetStartDate(Scanner scanner, NBPApiParameters parameters) {
         do {
-            System.out.println("Please enter end date [yyyy-MM-dd]:");
+            System.out.println("Please enter start date [yyyy-MM-dd]:");
             try {
                 parameters.setStartDate(scanner.nextLine());
             } catch (DateTimeParsingException e) {
@@ -52,6 +52,8 @@ Format daty wejściowej serwisu jest dowolny.
             Optional<NBPCurrency> optionalCurrency = NBPCurrency.parse(scanner.nextLine());
             if (optionalCurrency.isPresent()) {
                 parameters.setCurrency(optionalCurrency.get());
+            }else{
+                System.err.println("Error: unrecognized currency.");
             }
         } while (parameters.getCurrency() == null); // wykonuj pętle, dopóki currency == null
     }
