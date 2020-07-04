@@ -18,4 +18,8 @@ public class NBPApiParameters {
     public void setEndDate(String userInput) throws DateTimeParsingException {
         this.endDate = DateTimeUtilties.loadEndDate(userInput);
     }
+
+    public void setStartDate(String userInput) throws DateTimeParsingException {
+        this.startDate = DateTimeUtilties.loadStartDate(userInput, endDate);
+    }
 }
