@@ -2,6 +2,7 @@ package com.sda.javagdy4.apirekrutacyjne;
 
 import lombok.extern.log4j.Log4j;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -10,15 +11,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-/*
-Serwis musi udostępniać endpoint SOAPowy, który jako parametr przyjmuje walutę w formie pełnej
-nazwy tekstowej oraz zakres dat: początkowa i końcowa.
-Dla uproszczenia zadania można przyjąć, że obecnie serwis będzie sprawdzany jedynie dla walut:
-• Rubel rosyjski
-• Dolar amerykański
-• Euro
-Format daty wejściowej serwisu jest dowolny.
- */
         NBPApi api = new NBPApi();
         Scanner scanner = new Scanner(System.in);
         NBPApiParameters parameters = new NBPApiParameters();
@@ -27,8 +19,8 @@ Format daty wejściowej serwisu jest dowolny.
         loadAndSetEndDate(scanner, parameters);
         loadAndSetStartDate(scanner, parameters);
 
-        api.requestBidAskRates(parameters);
-//
+        List<Rate> rates = api.requestBidAskRates(parameters);
+        rates.forEach(log::info);
     }
 
     private static void loadAndSetEndDate(Scanner scanner, NBPApiParameters parameters) {

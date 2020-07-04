@@ -5,9 +5,7 @@ import lombok.extern.log4j.Log4j;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.logging.Logger;
 
-// TODO : dopisać logger zamiast soutów
 @Log4j
 public class DateTimeUtilties {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
