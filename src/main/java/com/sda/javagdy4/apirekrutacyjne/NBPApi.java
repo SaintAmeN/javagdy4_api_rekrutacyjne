@@ -1,7 +1,10 @@
 package com.sda.javagdy4.apirekrutacyjne;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.java.Log;
+import com.sda.javagdy4.apirekrutacyjne.exception.NoResultException;
+import com.sda.javagdy4.apirekrutacyjne.model.ExchangeRates;
+import com.sda.javagdy4.apirekrutacyjne.model.NBPApiParameters;
+import com.sda.javagdy4.apirekrutacyjne.model.Rate;
 import lombok.extern.log4j.Log4j;
 
 import java.io.IOException;
@@ -51,7 +54,7 @@ public class NBPApi {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return new ArrayList<>(); // todo: nie powinienem zwracać pustej listy.
+        throw new NoResultException("There was no result from API call.");
     }
 
     private String prepareRequestURL(NBPApiParameters parameters) {

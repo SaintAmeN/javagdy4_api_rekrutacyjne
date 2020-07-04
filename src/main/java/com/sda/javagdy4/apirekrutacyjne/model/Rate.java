@@ -1,4 +1,4 @@
-package com.sda.javagdy4.apirekrutacyjne;
+package com.sda.javagdy4.apirekrutacyjne.model;
 
 import lombok.Data;
 

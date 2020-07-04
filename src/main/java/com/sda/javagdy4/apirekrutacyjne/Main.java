@@ -1,5 +1,9 @@
 package com.sda.javagdy4.apirekrutacyjne;
 
+import com.sda.javagdy4.apirekrutacyjne.exception.DateTimeParsingException;
+import com.sda.javagdy4.apirekrutacyjne.model.NBPApiParameters;
+import com.sda.javagdy4.apirekrutacyjne.model.NBPCurrency;
+import com.sda.javagdy4.apirekrutacyjne.model.Rate;
 import lombok.extern.log4j.Log4j;
 
 import java.util.List;
@@ -21,6 +25,16 @@ public class Main {
 
         List<Rate> rates = api.requestBidAskRates(parameters);
         rates.forEach(log::info);
+// TODO: znajdz min / max
+
+//        NBPCurrency currency = null;
+//        do {
+//            try {
+//                currency = NBPCurrency.valueOf("input");
+//            } catch (IllegalArgumentException iae) {
+////            ...
+//            }
+//        } while (currency == null);
     }
 
     private static void loadAndSetEndDate(Scanner scanner, NBPApiParameters parameters) {
