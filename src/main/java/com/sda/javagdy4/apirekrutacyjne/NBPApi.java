@@ -1,11 +1,15 @@
 package com.sda.javagdy4.apirekrutacyjne;
 
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+@Log4j
 public class NBPApi {
     private final static String API_BID_ASK_ENDPOINT = "http://api.nbp.pl/api/exchangerates/rates/C/{currency}/{startDate}/{endDate}/?format=json";
     private final HttpClient httpClient = HttpClient.newBuilder()

@@ -5,8 +5,10 @@ import lombok.extern.log4j.Log4j;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.logging.Logger;
 
 // TODO : dopisać logger zamiast soutów
+@Log4j
 public class DateTimeUtilties {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -27,7 +29,7 @@ public class DateTimeUtilties {
                 throw new DateTimeParseException("End date should be no later than yesterday.", input, 1);
             }
         } catch (DateTimeParseException dtpe) {
-            System.out.println("Błąd parsowania daty.");
+            log.error("Błąd parsowania daty.");
             throw new DateTimeParsingException(dtpe.getMessage());
         }
         return loadedDate;
@@ -43,7 +45,7 @@ public class DateTimeUtilties {
                 throw new DateTimeParseException("Start date should be no later than end date.", input, 1);
             }
         } catch (DateTimeParseException dtpe) {
-            System.out.println("Błąd parsowania daty.");
+            log.error("Błąd parsowania daty.");
             throw new DateTimeParsingException(dtpe.getMessage());
         }
         return loadedDate;
